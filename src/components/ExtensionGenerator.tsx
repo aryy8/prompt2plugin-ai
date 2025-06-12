@@ -8,11 +8,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Download, Loader2, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "@/hooks/use-toast";
+import { useNavigate } from "react-router-dom";
 
 export function ExtensionGenerator() {
   const [prompt, setPrompt] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const handleGenerate = async () => {
     if (!prompt.trim()) {
@@ -21,6 +23,19 @@ export function ExtensionGenerator() {
         description: "Please enter a prompt for your Chrome extension",
         variant: "destructive",
       });
+      return;
+    }
+
+    // Check if user is logged in (for now, we'll simulate this check)
+    const isLoggedIn = false; // This would be replaced with actual auth check
+    
+    if (!isLoggedIn) {
+      toast({
+        title: "Authentication Required",
+        description: "Please sign up or log in to generate extensions",
+        variant: "destructive",
+      });
+      navigate("/signup");
       return;
     }
 

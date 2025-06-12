@@ -7,6 +7,13 @@ import { ArrowRight, Zap, Download, Code } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export function HeroSection() {
+  const scrollToGenerator = () => {
+    const element = document.getElementById('free-tier');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative py-24 sm:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
@@ -46,10 +53,8 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button size="lg" className="text-lg px-8 py-3" asChild>
-              <Link to="#free-tier">
-                Start Building <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+            <Button size="lg" className="text-lg px-8 py-3" onClick={scrollToGenerator}>
+              Start Building <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button variant="outline" size="lg" className="text-lg px-8 py-3" asChild>
               <Link to="/about">Learn More</Link>

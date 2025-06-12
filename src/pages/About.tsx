@@ -4,7 +4,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
-import { Download, Crown, ArrowRight, Code2, Zap, Globe } from "lucide-react";
+import { Download, Crown, ArrowRight, Settings, Upload, Play } from "lucide-react";
 
 export default function About() {
   return (
@@ -139,94 +139,165 @@ export default function About() {
           </Card>
         </motion.div>
 
-        {/* Technical Features */}
+        {/* How to Use Chrome Extension */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
+          className="mb-16"
         >
-          <Card>
-            <CardHeader>
-              <div className="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900 flex items-center justify-center mb-2">
-                <Code2 className="h-5 w-5 text-blue-600 dark:text-blue-400" />
-              </div>
-              <CardTitle>Modern Tech Stack</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• Next.js + TypeScript frontend</li>
-                <li>• Tailwind CSS for styling</li>
-                <li>• Node.js + Express backend</li>
-                <li>• OpenAI & Claude API integration</li>
-              </ul>
-            </CardContent>
-          </Card>
-
-          <Card>
+          <Card className="p-8">
             <CardHeader>
               <div className="w-10 h-10 rounded-lg bg-green-100 dark:bg-green-900 flex items-center justify-center mb-2">
-                <Zap className="h-5 w-5 text-green-600 dark:text-green-400" />
+                <Download className="h-5 w-5 text-green-600 dark:text-green-400" />
               </div>
-              <CardTitle>AI-Powered Generation</CardTitle>
+              <CardTitle className="text-2xl">How to Install Your Chrome Extension</CardTitle>
+              <CardDescription>
+                Step-by-step guide to install and use your generated Chrome extension
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• Intelligent code generation</li>
-                <li>• Context-aware responses</li>
-                <li>• Production-ready output</li>
-                <li>• Error handling & validation</li>
-              </ul>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <div className="w-10 h-10 rounded-lg bg-purple-100 dark:bg-purple-900 flex items-center justify-center mb-2">
-                <Globe className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
+                    1
+                  </div>
+                  <div>
+                    <h4 className="font-medium mb-2">Download and Extract</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Download the ZIP file from Prompt2Plugin and extract it to a folder on your computer.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
+                    2
+                  </div>
+                  <div>
+                    <h4 className="font-medium mb-2">Open Chrome Extensions</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Open Chrome browser and navigate to <code className="bg-muted px-1 rounded">chrome://extensions/</code> or go to Menu → More Tools → Extensions.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
+                    3
+                  </div>
+                  <div>
+                    <h4 className="font-medium mb-2">Enable Developer Mode</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Toggle the "Developer mode" switch in the top-right corner of the extensions page.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
+                    4
+                  </div>
+                  <div>
+                    <h4 className="font-medium mb-2">Load Unpacked Extension</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Click "Load unpacked" button and select the extracted folder containing your extension files.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
+                    5
+                  </div>
+                  <div>
+                    <h4 className="font-medium mb-2">Start Using</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Your extension is now installed! Look for its icon in the Chrome toolbar and click to start using it.
+                    </p>
+                  </div>
+                </div>
               </div>
-              <CardTitle>Seamless Integration</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• Direct n8n.io integration</li>
-                <li>• Chrome Web Store ready</li>
-                <li>• Modular architecture</li>
-                <li>• Developer-friendly APIs</li>
-              </ul>
             </CardContent>
           </Card>
         </motion.div>
 
-        {/* API Endpoints */}
+        {/* How to Use n8n Workflow */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <Card>
+          <Card className="p-8">
             <CardHeader>
-              <CardTitle className="text-2xl">API Endpoints</CardTitle>
+              <div className="w-10 h-10 rounded-lg bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center mb-2">
+                <Crown className="h-5 w-5 text-yellow-600 dark:text-yellow-400" />
+              </div>
+              <CardTitle className="text-2xl">How to Use Your n8n Workflow</CardTitle>
               <CardDescription>
-                RESTful API architecture for seamless integration
+                Step-by-step guide to import and run your AI-generated workflow in n8n
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
-                <div className="bg-muted p-4 rounded-lg">
-                  <h4 className="font-medium mb-2">Chrome Extension Generation</h4>
-                  <code className="text-sm">POST /api/extension/generate</code>
-                  <p className="text-sm text-muted-foreground mt-2">
-                    Accepts user prompt, processes with OpenAI, generates and bundles Chrome extension files, returns downloadable ZIP.
-                  </p>
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
+                    1
+                  </div>
+                  <div>
+                    <h4 className="font-medium mb-2">Copy the JSON Code</h4>
+                    <p className="text-sm text-muted-foreground">
+                      After generating your workflow, copy the JSON code using the "Copy" button.
+                    </p>
+                  </div>
                 </div>
                 
-                <div className="bg-muted p-4 rounded-lg">
-                  <h4 className="font-medium mb-2">AI Workflow Generation</h4>
-                  <code className="text-sm">POST /api/agent/generate</code>
-                  <p className="text-sm text-muted-foreground mt-2">
-                    Accepts workflow description, processes with Claude AI, generates n8n-compatible JSON workflow, provides redirect to n8n.io.
-                  </p>
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
+                    2
+                  </div>
+                  <div>
+                    <h4 className="font-medium mb-2">Open n8n.io</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Click the "Redirect to n8n.io" button or visit <a href="https://n8n.io" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">n8n.io</a> directly. Sign up for a free account if you don't have one.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
+                    3
+                  </div>
+                  <div>
+                    <h4 className="font-medium mb-2">Create New Workflow</h4>
+                    <p className="text-sm text-muted-foreground">
+                      In your n8n dashboard, click "New workflow" to create a blank workflow.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
+                    4
+                  </div>
+                  <div>
+                    <h4 className="font-medium mb-2">Import JSON</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Click the "..." menu in the top-right, select "Import from JSON", and paste your copied JSON code.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
+                    5
+                  </div>
+                  <div>
+                    <h4 className="font-medium mb-2">Configure and Activate</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Review the imported workflow, configure any required credentials or settings, then save and activate your workflow to start automation.
+                    </p>
+                  </div>
                 </div>
               </div>
             </CardContent>
