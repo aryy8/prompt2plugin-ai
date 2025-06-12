@@ -1,9 +1,8 @@
-
 "use client";
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, Zap, Download, Code } from "lucide-react";
+import { ArrowRight, Download, Code, Workflow } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export function HeroSection() {
@@ -78,8 +77,8 @@ export function HeroSection() {
           </div>
           
           <div className="text-center p-6 rounded-lg bg-card border border-border/50">
-            <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-secondary/10 mb-4">
-              <Zap className="h-6 w-6 text-secondary" />
+            <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 mb-4">
+              <Workflow className="h-6 w-6 text-primary" />
             </div>
             <h3 className="text-lg font-semibold mb-2">AI Workflows</h3>
             <p className="text-foreground/70 text-sm">Create complex automation workflows with n8n integration</p>
