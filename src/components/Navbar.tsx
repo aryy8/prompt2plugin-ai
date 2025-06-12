@@ -5,11 +5,22 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
-import { Code2, Menu, X } from "lucide-react";
+import { Code2, Menu, X, LogOut } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useAuth } from "@/contexts/AuthContext";
+import { toast } from "@/hooks/use-toast";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { isLoggedIn, logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+    toast({
+      title: "Logged out",
+      description: "You have been successfully logged out.",
+    });
+  };
 
   return (
     <nav className="border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -29,12 +40,21 @@ export function Navbar() {
             <Link to="/about" className="text-foreground/70 hover:text-foreground transition-colors">
               About
             </Link>
-            <Link to="/login" className="text-foreground/70 hover:text-foreground transition-colors">
-              Login
-            </Link>
-            <Button asChild size="sm">
-              <Link to="/signup">Sign Up</Link>
-            </Button>
+            {isLoggedIn ? (
+              <Button onClick={handleLogout} variant="outline" size="sm">
+                <LogOut className="mr-2 h-4 w-4" />
+                Logout
+              </Button>
+            ) : (
+              <>
+                <Link to="/login" className="text-foreground/70 hover:text-foreground transition-colors">
+                  Login
+                </Link>
+                <Button asChild size="sm">
+                  <Link to="/signup">Sign Up</Link>
+                </Button>
+              </>
+            )}
             <ThemeToggle />
           </div>
 
@@ -69,18 +89,29 @@ export function Navbar() {
                 >
                   About
                 </Link>
-                <Link
-                  to="/login"
-                  className="block px-3 py-2 text-foreground/70 hover:text-foreground transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Login
-                </Link>
-                <div className="px-3 py-2">
-                  <Button asChild size="sm" className="w-full">
-                    <Link to="/signup">Sign Up</Link>
-                  </Button>
-                </div>
+                {isLoggedIn ? (
+                  <div className="px-3 py-2">
+                    <Button onClick={() => { handleLogout(); setIsOpen(false); }} variant="outline" size="sm" className="w-full">
+                      <LogOut className="mr-2 h-4 w-4" />
+                      Logout
+                    </Button>
+                  </div>
+                ) : (
+                  <>
+                    <Link
+                      to="/login"
+                      className="block px-3 py-2 text-foreground/70 hover:text-foreground transition-colors"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Login
+                    </Link>
+                    <div className="px-3 py-2">
+                      <Button asChild size="sm" className="w-full">
+                        <Link to="/signup">Sign Up</Link>
+                      </Button>
+                    </div>
+                  </>
+                )}
               </div>
             </motion.div>
           )}
