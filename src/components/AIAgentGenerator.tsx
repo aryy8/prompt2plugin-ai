@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -6,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Copy, ExternalLink, Loader2, Crown, Check } from "lucide-react";
+import { Copy, ExternalLink, Loader2, Crown, Check, Workflow } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "@/hooks/use-toast";
 
@@ -122,7 +121,7 @@ export function AIAgentGenerator() {
           <Card className="border-yellow-500/20 bg-gradient-to-br from-yellow-50/50 to-orange-50/50 dark:from-yellow-950/20 dark:to-orange-950/20">
             <CardHeader className="text-center">
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-yellow-500/10 mb-4 mx-auto">
-                <Crown className="h-6 w-6 text-yellow-600 dark:text-yellow-400" />
+                <Workflow className="h-6 w-6 text-yellow-600 dark:text-yellow-400" />
               </div>
               <CardTitle className="text-2xl">AI Agent Workflow Generator</CardTitle>
               <CardDescription className="text-lg">
