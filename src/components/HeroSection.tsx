@@ -4,7 +4,7 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, Zap, Download, Code } from "lucide-react";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 
 export function HeroSection() {
   return (
@@ -47,12 +47,12 @@ export function HeroSection() {
             className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button size="lg" className="text-lg px-8 py-3" asChild>
-              <Link href="#free-tier">
+              <Link to="#free-tier">
                 Start Building <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
             <Button variant="outline" size="lg" className="text-lg px-8 py-3" asChild>
-              <Link href="/about">Learn More</Link>
+              <Link to="/about">Learn More</Link>
             </Button>
           </motion.div>
         </motion.div>

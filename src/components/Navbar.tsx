@@ -2,7 +2,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
 import { Code2, Menu, X } from "lucide-react";
@@ -16,7 +16,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
+            <Link to="/" className="flex items-center space-x-2">
               <Code2 className="h-6 w-6 text-primary" />
               <span className="font-bold text-xl bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
                 Prompt2Plugin
@@ -26,14 +26,14 @@ export function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/about" className="text-foreground/70 hover:text-foreground transition-colors">
+            <Link to="/about" className="text-foreground/70 hover:text-foreground transition-colors">
               About
             </Link>
-            <Link href="/login" className="text-foreground/70 hover:text-foreground transition-colors">
+            <Link to="/login" className="text-foreground/70 hover:text-foreground transition-colors">
               Login
             </Link>
             <Button asChild size="sm">
-              <Link href="/signup">Sign Up</Link>
+              <Link to="/signup">Sign Up</Link>
             </Button>
             <ThemeToggle />
           </div>
@@ -63,14 +63,14 @@ export function Navbar() {
             >
               <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-border/40">
                 <Link
-                  href="/about"
+                  to="/about"
                   className="block px-3 py-2 text-foreground/70 hover:text-foreground transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   About
                 </Link>
                 <Link
-                  href="/login"
+                  to="/login"
                   className="block px-3 py-2 text-foreground/70 hover:text-foreground transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
@@ -78,7 +78,7 @@ export function Navbar() {
                 </Link>
                 <div className="px-3 py-2">
                   <Button asChild size="sm" className="w-full">
-                    <Link href="/signup">Sign Up</Link>
+                    <Link to="/signup">Sign Up</Link>
                   </Button>
                 </div>
               </div>

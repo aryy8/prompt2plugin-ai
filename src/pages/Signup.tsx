@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
 
 export default function Signup() {
@@ -97,7 +97,7 @@ export default function Signup() {
             <div className="mt-6 text-center">
               <p className="text-sm text-muted-foreground">
                 Already have an account?{" "}
-                <Link href="/login" className="text-primary hover:underline">
+                <Link to="/login" className="text-primary hover:underline">
                   Sign in
                 </Link>
               </p>
