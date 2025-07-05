@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -45,7 +44,7 @@ export function ExtensionGenerator() {
     console.log("Generating extension for prompt:", prompt);
 
     try {
-      const response = await fetch("/api/extension/generate", {
+      const response = await fetch("http://localhost:3001/generate-extension", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -54,12 +53,14 @@ export function ExtensionGenerator() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to generate extension");
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Failed to generate extension");
       }
 
-      // For now, simulate a download URL
-      const mockDownloadUrl = "data:application/zip;base64,UEsDBAoAAAAAAA==";
-      setDownloadUrl(mockDownloadUrl);
+      // Handle ZIP file response
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      setDownloadUrl(url);
       
       toast({
         title: "Success!",
@@ -150,19 +151,23 @@ export function ExtensionGenerator() {
                     </>
                   )}
                 </Button>
-
-                {downloadUrl && (
+              </div>
+              {downloadUrl && (
+                <div className="mt-6 p-4 border rounded-lg bg-green-50 dark:bg-green-900/20 text-center">
+                  <p className="mb-2 text-green-800 dark:text-green-200 font-semibold">
+                    Your extension ZIP is ready!
+                  </p>
                   <Button
                     onClick={handleDownload}
                     variant="outline"
                     size="lg"
-                    className="flex-1 sm:flex-none"
+                    className="flex items-center justify-center mx-auto"
                   >
                     <Download className="mr-2 h-4 w-4" />
                     Download ZIP
                   </Button>
-                )}
-              </div>
+                </div>
+              )}
             </CardContent>
           </Card>
         </motion.div>
