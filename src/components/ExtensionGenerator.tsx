@@ -44,7 +44,7 @@ export function ExtensionGenerator() {
     console.log("Generating extension for prompt:", prompt);
 
     try {
-      const response = await fetch("http://localhost:3001/generate-extension", {
+      const response = await fetch("https://prompt2plugin-ai.onrender.com/generate-extension", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
