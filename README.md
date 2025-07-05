@@ -3,7 +3,7 @@
 
 ## Features
 
-### ✨ Chrome Extension Generator (FREE)
+### Chrome Extension Generator (FREE)
 - **AI-Powered Generation**: Uses Google Gemini AI to create complete Chrome Extensions
 - **Manifest V3 Support**: Generates modern Chrome Extensions using the latest manifest version
 - **Automatic Packaging**: Creates downloadable ZIP files with all necessary extension files
