@@ -88,14 +88,14 @@ export default function About() {
                   </div>
                 </div>
 
-                {/* Paid Tier */}
+                {/* NEW - n8n Workflows */}
                 <div className="space-y-6">
                   <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 rounded-full bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center">
-                      <Crown className="h-4 w-4 text-yellow-600 dark:text-yellow-400" />
+                    <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
+                      <Settings className="h-4 w-4 text-blue-600 dark:text-blue-400" />
                     </div>
-                    <h3 className="text-xl font-semibold">Paid Tier - AI Agents</h3>
-                    <Badge className="bg-yellow-500 text-white">$10/month</Badge>
+                    <h3 className="text-xl font-semibold">NEW - n8n Workflows</h3>
+                    <Badge className="bg-blue-500 text-white">NEW</Badge>
                   </div>
                   
                   <div className="space-y-4 pl-11">
@@ -114,9 +114,9 @@ export default function About() {
                     <div className="flex items-start space-x-3">
                       <div className="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0" />
                       <div>
-                        <p className="font-medium">Backend: Claude AI Processing</p>
+                        <p className="font-medium">Backend: Gemini AI Processing</p>
                         <p className="text-sm text-muted-foreground">
-                          POST /api/agent/generate creates workflow with Claude
+                          POST /generate-n8n-workflow creates workflow with Gemini
                         </p>
                       </div>
                     </div>
@@ -126,9 +126,9 @@ export default function About() {
                     <div className="flex items-start space-x-3">
                       <div className="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0" />
                       <div>
-                        <p className="font-medium">Output: n8n JSON + Redirect</p>
+                        <p className="font-medium">Output: n8n JSON</p>
                         <p className="text-sm text-muted-foreground">
-                          Executable workflow code for n8n automation platform
+                          Importable workflow JSON for n8n automation platform
                         </p>
                       </div>
                     </div>
@@ -230,8 +230,8 @@ export default function About() {
         >
           <Card className="p-8">
             <CardHeader>
-              <div className="w-10 h-10 rounded-lg bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center mb-2">
-                <Crown className="h-5 w-5 text-yellow-600 dark:text-yellow-400" />
+              <div className="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900 flex items-center justify-center mb-2">
+                <Settings className="h-5 w-5 text-blue-600 dark:text-blue-400" />
               </div>
               <CardTitle className="text-2xl">How to Use Your n8n Workflow</CardTitle>
               <CardDescription>
@@ -241,7 +241,7 @@ export default function About() {
             <CardContent>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
                     1
                   </div>
                   <div>
@@ -253,7 +253,7 @@ export default function About() {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
                     2
                   </div>
                   <div>
@@ -265,7 +265,7 @@ export default function About() {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
                     3
                   </div>
                   <div>
@@ -277,7 +277,7 @@ export default function About() {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
                     4
                   </div>
                   <div>
@@ -289,7 +289,7 @@ export default function About() {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
                     5
                   </div>
                   <div>
