@@ -201,7 +201,7 @@ NODE_ENV=development
 ##  Deployment
 
 ### Frontend Deployment
-The frontend is ready for deployment on Vercel, Netlify, or any static hosting service.
+The frontend is ready for deployment on Vercel.
 
 ### Backend Deployment
 The backend is deployed on Render:
