@@ -4,9 +4,10 @@ An Express.js backend service that generates Chrome Extensions from natural lang
 
 ## Features
 
-- 🤖 **AI-Powered Generation**: Uses Google Gemini AI to generate complete Chrome Extensions
+- 🤖 **AI-Powered Generation**: Uses Google Gemini AI to generate complete Chrome Extensions and n8n workflows
 - 📦 **Automatic Packaging**: Creates downloadable ZIP files with all necessary extension files
 - 🔧 **Manifest V3 Support**: Generates modern Chrome Extensions using Manifest V3
+- ⚡ **n8n Workflow Generation**: Creates importable n8n workflow JSON from natural language descriptions
 - 🌐 **CORS Enabled**: Ready to work with React, Next.js, or any frontend
 - ⚡ **Production Ready**: Includes error handling, validation, and logging
 
@@ -87,6 +88,58 @@ POST /generate-extension
 - `Content-Type: application/zip`
 - `Content-Disposition: attachment; filename=extension.zip`
 
+### Generate n8n Workflow
+```
+POST /generate-n8n-workflow
+```
+
+**Request Body:**
+```json
+{
+  "prompt": "Create a workflow that monitors Gmail for new emails and sends notifications to Slack"
+}
+```
+
+**Response:**
+- **Success**: Returns JSON with a complete n8n workflow structure
+- **Error**: Returns JSON with error details
+
+**Headers Set:**
+- `Content-Type: application/json`
+
+**Example Response:**
+```json
+{
+  "name": "Gmail to Slack Notification",
+  "nodes": [
+    {
+      "id": "gmail-trigger",
+      "name": "Gmail Trigger",
+      "type": "n8n-nodes-base.gmailTrigger",
+      "position": [240, 300],
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "message",
+        "operation": "getAll"
+      }
+    }
+  ],
+  "connections": {
+    "Gmail Trigger": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}
+```
+
 ## Usage Examples
 
 ### Using cURL
@@ -137,6 +190,37 @@ if response.status_code == 200:
     print('Extension downloaded successfully!')
 else:
     print('Error:', response.json())
+```
+
+### Testing n8n Workflow Generation
+```bash
+# Using the provided test script
+node test-n8n-workflow.js
+
+# Using cURL
+curl -X POST http://localhost:3001/generate-n8n-workflow \
+  -H "Content-Type: application/json" \
+  -d '{"prompt": "Create a workflow that monitors Gmail and sends Slack notifications"}' \
+  | jq .
+
+# Using JavaScript/Fetch
+const response = await fetch('http://localhost:3001/generate-n8n-workflow', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    prompt: 'Create a workflow that processes CSV files and sends email reports'
+  })
+});
+
+if (response.ok) {
+  const workflow = await response.json();
+  console.log('Generated workflow:', workflow);
+} else {
+  const error = await response.json();
+  console.error('Error:', error);
+}
 ```
 
 ## Error Handling
